@@ -16,6 +16,7 @@ function GetCountryData() {
     async function fetchCountry() {
       try {
         const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+        if (!res.ok) throw new Error("Something wrong with API");
         const json = await res.json();
 
         setData(json[0]);
