@@ -1,9 +1,9 @@
-import Value from "./Value";
+import Country from "./Country";
 
 export default function App() {
   return (
     <div>
-      <Value />
+      <Country />
     </div>
   );
 }
