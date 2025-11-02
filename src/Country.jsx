@@ -16,11 +16,13 @@ function GetCountryData({ country }) {
   useEffect(() => {
     async function fetchCountry() {
       try {
+        //country 1 code
         const res = await fetch(`https://restcountries.com/v2/name/${country}`);
         if (!res.ok) throw new Error("Something wrong with API");
         const [data] = await res.json();
 
         setMineCuntry(data);
+        // neighbour Code
         const neighbourCode = data.borders?.[0];
         if (!neighbourCode) return;
 
