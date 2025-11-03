@@ -18,7 +18,7 @@ function GetCountryData({ country }) {
       try {
         //country 1 code
         const res = await fetch(`https://restcountries.com/v2/name/${country}`);
-        if (!res.ok) throw new Error("Something wrong with API");
+        if (!res.ok) throw new Error(`Something wrong with ${res.status}`);
         const [data] = await res.json();
 
         setMineCuntry(data);
@@ -29,7 +29,7 @@ function GetCountryData({ country }) {
         const res2 = await fetch(
           `https://restcountries.com/v2/alpha/${neighbourCode}`
         );
-        if (!res2.ok) throw new Error("Neighbour not found");
+        if (!res2.ok) throw new Error(`Neighbour not found ${res2.status}`);
         const data2 = await res2.json();
         setNeighbourCountry(data2);
       } catch (err) {
